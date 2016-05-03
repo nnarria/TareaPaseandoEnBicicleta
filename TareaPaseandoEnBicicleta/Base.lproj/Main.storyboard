@@ -1,25 +1,117 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aLg-oi-WHf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Mi ruta-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TareaPaseandoEnBicicleta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3S-W2-RoF">
+                                <rect key="frame" x="-12" y="0.0" width="344" height="568"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" semanticContentAttribute="forceRightToLeft" translatesAutoresizingMaskIntoConstraints="NO" id="9wc-B5-kss">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="uIz-uD-zta">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="di0-h4-flw">
+                                            <rect key="frame" x="265" y="7" width="39" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Reset"/>
+                                            <connections>
+                                                <action selector="resetRutaActual" destination="BYZ-38-t0r" eventType="touchUpInside" id="dIf-Zk-oaB"/>
+                                            </connections>
+                                        </button>
+                                        <connections>
+                                            <action selector="resetRuta:" destination="BYZ-38-t0r" id="rgD-vX-cO1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" style="plain" id="5jh-4W-wAh">
+                                        <segmentedControl key="customView" opaque="NO" tag="3" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="rLP-Rn-tZZ">
+                                            <rect key="frame" x="64" y="8" width="191" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <segments>
+                                                <segment title="Map"/>
+                                                <segment title="Hybrid"/>
+                                                <segment title="Satellite"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="cambiarTipoMapa:" destination="BYZ-38-t0r" eventType="valueChanged" id="lP6-bz-3tc"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w3S-W2-RoF" firstAttribute="centerX" secondItem="9wc-B5-kss" secondAttribute="centerX" id="JV2-3G-z5a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w3S-W2-RoF" secondAttribute="trailing" id="Ube-mD-anx"/>
+                            <constraint firstItem="w3S-W2-RoF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-28" id="Ykq-1b-l3d"/>
+                            <constraint firstItem="w3S-W2-RoF" firstAttribute="bottom" secondItem="9wc-B5-kss" secondAttribute="bottom" id="aY1-rB-WOS"/>
+                            <constraint firstItem="w3S-W2-RoF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fDw-Ad-k2l"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="w3S-W2-RoF" secondAttribute="bottom" id="ft1-Zf-iW8"/>
+                            <constraint firstItem="w3S-W2-RoF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="gdk-eD-9S1"/>
+                            <constraint firstItem="9wc-B5-kss" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="o24-Gf-139"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w3S-W2-RoF" secondAttribute="trailing" constant="-28" id="tRJ-mh-jM1"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ube-mD-anx"/>
+                                <exclude reference="tRJ-mh-jM1"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Mi ruta" id="vsK-oC-pan">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="k5n-fc-27X">
+                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="rfI-t6-aOi">
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="distanciaText" destination="rfI-t6-aOi" id="y4b-aF-vqp"/>
+                        <outlet property="mapa" destination="w3S-W2-RoF" id="kme-Ws-LvH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1192" y="320"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kxY-Ba-XLR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aLg-oi-WHf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HRS-U5-ZsD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vf3-Sh-KbM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ip-Ai-Blg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="380" y="320"/>
         </scene>
     </scenes>
 </document>
